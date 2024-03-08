@@ -47,7 +47,7 @@ onAuthStateChanged(auth, (user) => {
         })
 })
 
-const deleteNow = (theUrl) => {
+const deleteNow = () => {
     const desertRef = ref(storage, `${toDelete}`);
     deleteObject(desertRef).then(() => {
         alert("Deleted")
