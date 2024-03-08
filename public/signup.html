@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Sign Up</h2>
+    <p>Create a new account with email and password.</p>
+    <input type="text" placeholder="First name" id="first">
+    <input type="text" placeholder="Last name" id="last">
+    <input type="email" placeholder="Email" id="email">
+    <input type="password" placeholder="Password" id="password">
+    <button id="signUp" style="margin-top: 3rem; height: 2.95rem;">Sign up</button>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCGHMNZxZC5nYvM8DvVIwWSEsvXBIdTXcE",
+            authDomain: "live-coding-test-b976a.firebaseapp.com",
+            projectId: "live-coding-test-b976a",
+            storageBucket: "live-coding-test-b976a.appspot.com",
+            messagingSenderId: "547114992199",
+            appId: "1:547114992199:web:b49daacc6712e33ef2a762"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        let signUB = document.getElementById('signUp')
+
+        signUB.addEventListener('click', () => {
+            let email = document.getElementById('email').value
+            let password = document.getElementById('password').value
+
+            if (email !== "" && password !== "") {
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        alert('Account created successfully!')
+                        window.location.href = 'signin.html'
+                        
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        // ..
+                    });
+            }else{
+                alert('Spaces can not be empty')
+            }
+        })
+    </script>
+</body>
+
+</html>

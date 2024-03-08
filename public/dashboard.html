@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        #addButton{
+            margin-left: 25%;
+        }
+        #showImage{
+            border: 2px solid blue;
+            padding: 0.3rem;
+            height: 17rem;
+            border-radius: 7px;
+            display: flex;
+            overflow-x: scroll;
+        }
+        #showImage div {
+            width: 50%;
+            border: 2px solid rgb(141, 137, 137);
+            padding: 5px;
+            border-radius: 5px;
+            height: 100%;
+            margin-right: 1rem;
+        }
+        #showImage img{
+            width: 100%;
+            height: 80%;
+        }
+        #showImage button{
+            height: 13%;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainSection container-fliud p-4 shadow-sm w-50 mx-auto">
+        <h2 class="text-center">Add images to your Album</h2>
+        <input type="file" class="form-control mt-4" id="file">
+        <input type="text" class="form-control mt-3" id="fileName" placeholder="Image name">
+        <button class="form-control w-50 btn btn-primary mt-3" id="addButton" onclick="upLoadFile()">Add</button>
+    </div>
+    <div class="showImage container-fliud p-4 shadow-sm w-75 mx-auto">
+        <h2 class="text-center">See your image here</h2>
+        <div id="showImage">
+
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
